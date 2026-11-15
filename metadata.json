@@ -1,0 +1,6 @@
+{
+  "name": "Projet — Services, Commerce et Proximité",
+  "description": "Prototype interactif de plateforme de commerce local, comparaison de prix, services de proximité et livraison géolocalisée à Parakou (Bénin).",
+  "requestFramePermissions": ["geolocation"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
