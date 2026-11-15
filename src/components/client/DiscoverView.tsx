@@ -79,18 +79,18 @@ export const DiscoverView: React.FC = () => {
   };
 
   return (
-    <div className="space-y-8">
+    <div className="space-y-9">
       {/* Section Hero éditoriale & recherche unifiée */}
-      <section className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch bg-white border border-slate-200 rounded-2xl overflow-hidden">
+      <section className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch bg-white border border-[#e7e6dd] rounded-[26px] overflow-hidden">
         <div className="lg:col-span-7 p-6 sm:p-8 flex flex-col justify-between space-y-6">
           <div className="space-y-3">
-            <p className="text-xs font-medium text-teal-800 tracking-wide">
+            <p className="text-xs font-medium text-[#0b5d41] tracking-wide">
               {BRAND_CONFIG.cityDefault}, {BRAND_CONFIG.countryDefault} · Quartier actif : {state.customerProfile.defaultNeighborhood}
             </p>
-            <h1 className="text-2xl sm:text-4xl font-bold text-slate-900 tracking-tight text-balance leading-[1.15]">
+            <h1 className="text-2xl sm:text-4xl font-bold text-[#17211c] tracking-tight text-balance leading-[1.15]">
               Commerces, prix locaux, repas et artisans à votre portée.
             </h1>
-            <p className="text-sm sm:text-base text-slate-600 max-w-xl leading-relaxed">
+            <p className="text-sm sm:text-base text-[#65736b] max-w-xl leading-relaxed">
               Comparez les prix exacts par conditionnement, commandez auprès des enseignes de Parakou ou sollicitez un professionnel géolocalisé jusqu’à votre portail.
             </p>
           </div>
@@ -98,19 +98,19 @@ export const DiscoverView: React.FC = () => {
           <form onSubmit={handleGlobalSearchSubmit} className="space-y-3">
             <div className="flex flex-col sm:flex-row gap-2.5">
               <div className="relative flex-1">
-                <Search className="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2 pointer-events-none" />
+                <Search className="w-4 h-4 text-[#9aa59d] absolute left-3.5 top-1/2 -translate-y-1/2 pointer-events-none" />
                 <input
                   type="search"
                   value={searchInput}
                   onChange={(e) => setSearchInput(e.target.value)}
                   placeholder="Rechercher un produit (riz, sel, shawarma) ou un lieu (Albarika)…"
-                  className="w-full h-12 pl-10 pr-4 text-sm bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:bg-white focus:ring-2 focus:ring-teal-700/25 focus:border-teal-700"
+                  className="w-full h-12 pl-10 pr-4 text-sm bg-[#f5f3ed] border border-[#e7e6dd] rounded-xl focus:outline-none focus:bg-white focus:ring-2 focus:ring-[#0b5d41]/25 focus:border-[#0b5d41]"
                 />
               </div>
               <button
                 type="button"
                 onClick={() => openCompareWithQuery(searchInput.trim() || 'riz')}
-                className="h-12 px-5 rounded-xl bg-teal-700 hover:bg-teal-800 text-white text-sm font-medium inline-flex items-center justify-center gap-2 transition-colors whitespace-nowrap shrink-0 cursor-pointer"
+                className="h-12 px-5 rounded-xl bg-[#0b5d41] hover:bg-[#084b35] text-white text-sm font-medium inline-flex items-center justify-center gap-2 transition-colors whitespace-nowrap shrink-0 cursor-pointer"
               >
                 <span>Comparer les prix</span>
                 <ArrowRight className="w-4 h-4" />
@@ -118,14 +118,14 @@ export const DiscoverView: React.FC = () => {
             </div>
 
             {searchInput.trim() && matchingProductsCount > 0 && (
-              <div className="flex items-center justify-between text-xs text-slate-600 pt-1">
+              <div className="flex items-center justify-between text-xs text-[#65736b] pt-1">
                 <span>
                   {matchingProductsCount} offre(s) de produits trouvée(s) pour « {searchInput.trim()} »
                 </span>
                 <button
                   type="button"
                   onClick={() => openCompareWithQuery(searchInput.trim())}
-                  className="font-medium text-teal-700 hover:text-teal-900 cursor-pointer"
+                  className="font-medium text-[#0b5d41] hover:text-[#084b35] cursor-pointer"
                 >
                   Ouvrir dans le comparateur
                 </button>
@@ -137,30 +137,30 @@ export const DiscoverView: React.FC = () => {
               <button
                 type="button"
                 onClick={() => openCompareWithQuery('riz')}
-                className="px-3 py-1.5 text-xs font-medium rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-800 transition-colors cursor-pointer whitespace-nowrap"
+                className="px-3 py-1.5 text-xs font-medium rounded-lg bg-[#eeede6] hover:bg-[#e7e6dd] text-[#26352d] transition-colors cursor-pointer whitespace-nowrap"
               >
                 Comparer le riz à Parakou
               </button>
               <button
                 type="button"
                 onClick={() => openEstablishment('est-grillades-nord')}
-                className="px-3 py-1.5 text-xs font-medium rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-800 transition-colors cursor-pointer whitespace-nowrap"
+                className="px-3 py-1.5 text-xs font-medium rounded-lg bg-[#eeede6] hover:bg-[#e7e6dd] text-[#26352d] transition-colors cursor-pointer whitespace-nowrap"
               >
                 Commander un shawarma
               </button>
               <button
                 type="button"
                 onClick={() => setClientTab('services')}
-                className="px-3 py-1.5 text-xs font-medium rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-800 transition-colors cursor-pointer inline-flex items-center gap-1.5 whitespace-nowrap"
+                className="px-3 py-1.5 text-xs font-medium rounded-lg bg-[#eeede6] hover:bg-[#e7e6dd] text-[#26352d] transition-colors cursor-pointer inline-flex items-center gap-1.5 whitespace-nowrap"
               >
-                <Wrench className="w-3.5 h-3.5 text-teal-700" />
+                <Wrench className="w-3.5 h-3.5 text-[#0b5d41]" />
                 <span>Dépannage moto ou plombier</span>
               </button>
             </div>
           </form>
         </div>
 
-        <div className="lg:col-span-5 relative min-h-[210px] lg:min-h-full bg-slate-100">
+        <div className="lg:col-span-5 relative min-h-[210px] lg:min-h-full bg-[#eeede6]">
           <ResilientImage
             src={IMG_HERO_MARKET}
             alt="Commerce de proximité et marché alimentaire à Parakou"
@@ -188,8 +188,8 @@ export const DiscoverView: React.FC = () => {
                   onClick={() => setSelectedCat(cat.key)}
                   className={`px-3.5 py-2 text-xs sm:text-sm font-medium rounded-xl transition-colors whitespace-nowrap shrink-0 cursor-pointer ${
                     active
-                      ? 'bg-slate-900 text-white'
-                      : 'bg-white border border-slate-200 text-slate-700 hover:border-slate-300'
+                      ? 'bg-[#153e2d] text-white'
+                      : 'bg-white border border-[#e7e6dd] text-[#405047] hover:border-[#cbd3ca]'
                   }`}
                 >
                   {cat.label}
@@ -199,7 +199,7 @@ export const DiscoverView: React.FC = () => {
           </div>
 
           <div className="flex items-center gap-2 shrink-0">
-            <SlidersHorizontal className="w-4 h-4 text-slate-400" />
+            <SlidersHorizontal className="w-4 h-4 text-[#9aa59d]" />
             <label htmlFor="neighborhood-filter" className="sr-only">
               Filtrer par quartier
             </label>
@@ -207,7 +207,7 @@ export const DiscoverView: React.FC = () => {
               id="neighborhood-filter"
               value={selectedNeighborhood}
               onChange={(e) => setSelectedNeighborhood(e.target.value)}
-              className="h-10 px-3 text-sm bg-white border border-slate-200 rounded-xl text-slate-800 focus:outline-none focus:border-teal-700"
+              className="h-10 px-3 text-sm bg-white border border-[#e7e6dd] rounded-xl text-[#26352d] focus:outline-none focus:border-[#0b5d41]"
             >
               <option value="all">Tous les quartiers</option>
               {PARAKOU_NEIGHBORHOODS.map((n) => (
@@ -221,11 +221,11 @@ export const DiscoverView: React.FC = () => {
 
         {/* Grille des établissements */}
         {filteredEstablishments.length === 0 ? (
-          <div className="bg-white border border-slate-200 rounded-2xl p-10 text-center space-y-3">
-            <p className="text-base font-semibold text-slate-900">
+          <div className="bg-white border border-[#e7e6dd] rounded-2xl p-10 text-center space-y-3">
+            <p className="text-base font-semibold text-[#17211c]">
               Aucun établissement ne correspond à cette recherche.
             </p>
-            <p className="text-sm text-slate-600">
+            <p className="text-sm text-[#65736b]">
               Essayez un autre quartier ou lancez une recherche produit dans le comparateur de prix.
             </p>
             <div className="flex justify-center gap-3 pt-1">
@@ -236,7 +236,7 @@ export const DiscoverView: React.FC = () => {
                   setSelectedCat('all');
                   setSelectedNeighborhood('all');
                 }}
-                className="px-4 py-2 text-sm font-medium rounded-xl border border-slate-200 text-slate-700 hover:bg-slate-50 cursor-pointer"
+                className="px-4 py-2 text-sm font-medium rounded-xl border border-[#e7e6dd] text-[#405047] hover:bg-[#f5f3ed] cursor-pointer"
               >
                 Réinitialiser les filtres
               </button>
@@ -244,7 +244,7 @@ export const DiscoverView: React.FC = () => {
                 <button
                   type="button"
                   onClick={() => openCompareWithQuery(searchInput.trim())}
-                  className="px-4 py-2 text-sm font-medium rounded-xl bg-teal-700 text-white hover:bg-teal-800 cursor-pointer"
+                  className="px-4 py-2 text-sm font-medium rounded-xl bg-[#0b5d41] text-white hover:bg-[#084b35] cursor-pointer"
                 >
                   Chercher dans les produits
                 </button>
@@ -269,9 +269,9 @@ export const DiscoverView: React.FC = () => {
                       openEstablishment(est.id);
                     }
                   }}
-                  className="group bg-white border border-slate-200 rounded-2xl overflow-hidden hover:border-teal-600/50 transition-all cursor-pointer flex flex-col"
+                  className="group bg-white border border-[#e7e6dd] rounded-2xl overflow-hidden hover:border-teal-600/50 transition-all cursor-pointer flex flex-col"
                 >
-                  <div className="aspect-[16/10] bg-slate-100 overflow-hidden">
+                  <div className="aspect-[16/10] bg-[#eeede6] overflow-hidden">
                     <ResilientImage
                       src={est.imageUrl}
                       alt={est.name}
@@ -281,8 +281,8 @@ export const DiscoverView: React.FC = () => {
                   </div>
                   <div className="p-4 flex-1 flex flex-col justify-between space-y-3">
                     <div className="space-y-1.5">
-                      <div className="flex items-center gap-2 text-xs text-slate-500">
-                        <span className="font-medium text-teal-800">
+                      <div className="flex items-center gap-2 text-xs text-[#829087]">
+                        <span className="font-medium text-[#0b5d41]">
                           {CATEGORY_LABELS[est.category]}
                         </span>
                         <span aria-hidden="true">·</span>
@@ -290,35 +290,35 @@ export const DiscoverView: React.FC = () => {
                         <span aria-hidden="true">·</span>
                         <span className="tabular-nums">{dist} km</span>
                       </div>
-                      <h2 className="text-base font-semibold text-slate-900 group-hover:text-teal-800 transition-colors">
+                      <h2 className="text-base font-semibold text-[#17211c] group-hover:text-[#0b5d41] transition-colors">
                         {est.name}
                       </h2>
-                      <p className="text-sm text-slate-600 line-clamp-2 leading-snug">
+                      <p className="text-sm text-[#65736b] line-clamp-2 leading-snug">
                         {est.description}
                       </p>
                     </div>
 
-                    <div className="pt-3 border-t border-slate-100 flex items-center justify-between text-xs text-slate-600">
+                    <div className="pt-3 border-t border-[#eeede6] flex items-center justify-between text-xs text-[#65736b]">
                       <span className="inline-flex items-center gap-1.5">
                         {est.prepTimeMin ? (
                           <>
-                            <Clock className="w-3.5 h-3.5 text-slate-400" />
+                            <Clock className="w-3.5 h-3.5 text-[#9aa59d]" />
                             <span>Prép. ~{est.prepTimeMin} min</span>
                           </>
                         ) : (
                           <>
-                            <MapPin className="w-3.5 h-3.5 text-slate-400" />
+                            <MapPin className="w-3.5 h-3.5 text-[#9aa59d]" />
                             <span>{est.hours}</span>
                           </>
                         )}
                       </span>
-                      <span className="font-medium text-slate-900 inline-flex items-center gap-1">
+                      <span className="font-medium text-[#17211c] inline-flex items-center gap-1">
                         {est.category === 'service'
                           ? 'Solliciter'
                           : offersCount > 0
                           ? `${offersCount} article(s)`
                           : 'Consulter'}
-                        <ArrowRight className="w-3.5 h-3.5 text-teal-700" />
+                        <ArrowRight className="w-3.5 h-3.5 text-[#0b5d41]" />
                       </span>
                     </div>
                   </div>
