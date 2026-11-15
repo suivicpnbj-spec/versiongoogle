@@ -111,11 +111,11 @@ export const CartCheckoutDrawer: React.FC = () => {
       aria-modal="true"
       aria-label="Panier et commande"
     >
-      <div className="bg-[#F8F9FA] w-full max-w-xl h-full flex flex-col border-l border-slate-200 shadow-2xl">
-        <header className="bg-white border-b border-slate-200 px-5 py-4 flex items-center justify-between">
+      <div className="bg-[#F8F9FA] w-full max-w-xl h-full flex flex-col border-l border-[#e7e6dd] shadow-2xl">
+        <header className="bg-white border-b border-[#e7e6dd] px-5 py-4 flex items-center justify-between">
           <div className="flex items-center gap-2.5">
-            <ShoppingBag className="w-5 h-5 text-teal-700" />
-            <h2 className="text-base font-bold text-slate-900">
+            <ShoppingBag className="w-5 h-5 text-[#0b5d41]" />
+            <h2 className="text-base font-bold text-[#17211c]">
               {activeMerchantGroup ? 'Finaliser la commande' : `Votre panier (${cart.reduce((s, i) => s + i.quantity, 0)})`}
             </h2>
           </div>
@@ -125,7 +125,7 @@ export const CartCheckoutDrawer: React.FC = () => {
               setCheckoutEstId(null);
               setCartOpen(false);
             }}
-            className="p-2 text-slate-500 hover:text-slate-900 cursor-pointer"
+            className="p-2 text-[#829087] hover:text-[#17211c] cursor-pointer"
             aria-label="Fermer le panier"
           >
             <X className="w-5 h-5" />
@@ -134,17 +134,17 @@ export const CartCheckoutDrawer: React.FC = () => {
 
         <div className="flex-1 overflow-y-auto p-5 space-y-5">
           {cart.length === 0 ? (
-            <div className="bg-white border border-slate-200 rounded-2xl p-8 text-center space-y-3">
-              <p className="text-base font-semibold text-slate-900">
+            <div className="bg-white border border-[#e7e6dd] rounded-2xl p-8 text-center space-y-3">
+              <p className="text-base font-semibold text-[#17211c]">
                 Votre panier est vide.
               </p>
-              <p className="text-sm text-slate-600">
+              <p className="text-sm text-[#65736b]">
                 Comparez les prix des produits de Parakou ou parcourez les restaurants et commerces pour ajouter des articles.
               </p>
               <button
                 type="button"
                 onClick={() => setCartOpen(false)}
-                className="h-11 px-4 rounded-xl bg-teal-700 text-white text-sm font-medium cursor-pointer"
+                className="h-11 px-4 rounded-xl bg-[#0b5d41] text-white text-sm font-medium cursor-pointer"
               >
                 Explorer les commerces
               </button>
@@ -155,21 +155,21 @@ export const CartCheckoutDrawer: React.FC = () => {
                 <button
                   type="button"
                   onClick={() => setCheckoutEstId(null)}
-                  className="text-xs font-medium text-teal-700 hover:text-teal-900 cursor-pointer"
+                  className="text-xs font-medium text-[#0b5d41] hover:text-[#084b35] cursor-pointer"
                 >
                   ← Revenir à la liste du panier
                 </button>
-                <span className="text-xs text-slate-500">
+                <span className="text-xs text-[#829087]">
                   {activeMerchantGroup.establishment.neighborhood}
                 </span>
               </div>
 
-              <div className="bg-white border border-slate-200 rounded-2xl p-4 space-y-2">
-                <h3 className="text-base font-bold text-slate-900">
+              <div className="bg-white border border-[#e7e6dd] rounded-2xl p-4 space-y-2">
+                <h3 className="text-base font-bold text-[#17211c]">
                   {activeMerchantGroup.establishment.name}
                 </h3>
                 {activeMerchantGroup.establishment.prepTimeMin && (
-                  <p className="text-xs text-teal-800 inline-flex items-center gap-1.5 font-medium">
+                  <p className="text-xs text-[#0b5d41] inline-flex items-center gap-1.5 font-medium">
                     <Clock className="w-3.5 h-3.5" />
                     <span>
                       Temps de préparation estimé : ~
@@ -181,16 +181,16 @@ export const CartCheckoutDrawer: React.FC = () => {
                   {activeMerchantGroup.items.map((item) => (
                     <div key={item.id} className="py-2 flex items-center justify-between text-sm">
                       <div>
-                        <p className="font-medium text-slate-900">
+                        <p className="font-medium text-[#17211c]">
                           {item.quantity} × {item.productName}
                         </p>
-                        <p className="text-xs text-slate-500">
+                        <p className="text-xs text-[#829087]">
                           {item.packagingLabel}
                           {item.selectedOptions.length > 0 &&
                             ` · ${item.selectedOptions.map((o) => o.label).join(', ')}`}
                         </p>
                       </div>
-                      <span className="font-mono-tabular font-semibold text-slate-900">
+                      <span className="font-mono-tabular font-semibold text-[#17211c]">
                         {formatFcfa(item.unitPriceFcfa * item.quantity)}
                       </span>
                     </div>
@@ -205,8 +205,8 @@ export const CartCheckoutDrawer: React.FC = () => {
               )}
 
               {/* Mode de réception */}
-              <div className="bg-white border border-slate-200 rounded-2xl p-4 space-y-3">
-                <p className="text-xs font-semibold text-slate-700">
+              <div className="bg-white border border-[#e7e6dd] rounded-2xl p-4 space-y-3">
+                <p className="text-xs font-semibold text-[#405047]">
                   Mode de réception souhaité
                 </p>
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-2">
@@ -216,8 +216,8 @@ export const CartCheckoutDrawer: React.FC = () => {
                       onClick={() => setFulfillmentMode('livraison')}
                       className={`h-11 px-3 rounded-xl border text-xs sm:text-sm font-medium cursor-pointer transition-colors ${
                         fulfillmentMode === 'livraison'
-                          ? 'bg-slate-900 text-white border-slate-900'
-                          : 'bg-white text-slate-700 border-slate-200'
+                          ? 'bg-[#153e2d] text-white border-[#153e2d]'
+                          : 'bg-white text-[#405047] border-[#e7e6dd]'
                       }`}
                     >
                       Livraison (+500 F)
@@ -229,8 +229,8 @@ export const CartCheckoutDrawer: React.FC = () => {
                       onClick={() => setFulfillmentMode('retrait')}
                       className={`h-11 px-3 rounded-xl border text-xs sm:text-sm font-medium cursor-pointer transition-colors ${
                         fulfillmentMode === 'retrait'
-                          ? 'bg-slate-900 text-white border-slate-900'
-                          : 'bg-white text-slate-700 border-slate-200'
+                          ? 'bg-[#153e2d] text-white border-[#153e2d]'
+                          : 'bg-white text-[#405047] border-[#e7e6dd]'
                       }`}
                     >
                       Retrait sur place
@@ -242,8 +242,8 @@ export const CartCheckoutDrawer: React.FC = () => {
                       onClick={() => setFulfillmentMode('sur_place')}
                       className={`h-11 px-3 rounded-xl border text-xs sm:text-sm font-medium cursor-pointer transition-colors ${
                         fulfillmentMode === 'sur_place'
-                          ? 'bg-slate-900 text-white border-slate-900'
-                          : 'bg-white text-slate-700 border-slate-200'
+                          ? 'bg-[#153e2d] text-white border-[#153e2d]'
+                          : 'bg-white text-[#405047] border-[#e7e6dd]'
                       }`}
                     >
                       Sur place
@@ -253,39 +253,39 @@ export const CartCheckoutDrawer: React.FC = () => {
               </div>
 
               {/* Coordonnées client */}
-              <div className="bg-white border border-slate-200 rounded-2xl p-4 grid grid-cols-1 sm:grid-cols-2 gap-3">
+              <div className="bg-white border border-[#e7e6dd] rounded-2xl p-4 grid grid-cols-1 sm:grid-cols-2 gap-3">
                 <div>
-                  <label className="block text-xs font-medium text-slate-700 mb-1">
+                  <label className="block text-xs font-medium text-[#405047] mb-1">
                     Nom complet
                   </label>
                   <input
                     type="text"
                     value={customerName}
                     onChange={(e) => setCustomerName(e.target.value)}
-                    className="w-full h-11 px-3 text-sm border border-slate-200 rounded-xl focus:outline-none focus:border-teal-700"
+                    className="w-full h-11 px-3 text-sm border border-[#e7e6dd] rounded-xl focus:outline-none focus:border-[#0b5d41]"
                   />
                 </div>
                 <div>
-                  <label className="block text-xs font-medium text-slate-700 mb-1">
+                  <label className="block text-xs font-medium text-[#405047] mb-1">
                     Téléphone
                   </label>
                   <input
                     type="tel"
                     value={customerPhone}
                     onChange={(e) => setCustomerPhone(e.target.value)}
-                    className="w-full h-11 px-3 text-sm font-mono-tabular border border-slate-200 rounded-xl focus:outline-none focus:border-teal-700"
+                    className="w-full h-11 px-3 text-sm font-mono-tabular border border-[#e7e6dd] rounded-xl focus:outline-none focus:border-[#0b5d41]"
                   />
                 </div>
               </div>
 
               {/* Localisation exacte si livraison */}
               {fulfillmentMode === 'livraison' && (
-                <div className="bg-white border border-slate-200 rounded-2xl p-4 space-y-3">
+                <div className="bg-white border border-[#e7e6dd] rounded-2xl p-4 space-y-3">
                   <div>
-                    <h4 className="text-sm font-bold text-slate-900">
+                    <h4 className="text-sm font-bold text-[#17211c]">
                       Lieu exact de livraison à Parakou
                     </h4>
-                    <p className="text-xs text-slate-600">
+                    <p className="text-xs text-[#65736b]">
                       Positionnez votre maison ou ruelle sur la carte afin que le livreur arrive sans vous faire sortir sur une grande voie.
                     </p>
                   </div>
@@ -304,13 +304,13 @@ export const CartCheckoutDrawer: React.FC = () => {
               )}
 
               {/* Paiement de démonstration */}
-              <div className="bg-white border border-slate-200 rounded-2xl p-4 space-y-3">
+              <div className="bg-white border border-[#e7e6dd] rounded-2xl p-4 space-y-3">
                 <div className="flex items-start gap-2.5 p-3 rounded-xl bg-amber-50 border border-amber-200 text-xs text-amber-900">
                   <ShieldAlert className="w-4 h-4 text-amber-700 shrink-0 mt-0.5" />
                   <span>{BRAND_CONFIG.paymentDemoNotice}</span>
                 </div>
 
-                <p className="text-xs font-semibold text-slate-700">
+                <p className="text-xs font-semibold text-[#405047]">
                   Mode de règlement (démonstration)
                 </p>
                 <div className="space-y-2">
@@ -323,8 +323,8 @@ export const CartCheckoutDrawer: React.FC = () => {
                       key={m.id}
                       className={`flex items-center gap-2.5 p-3 rounded-xl border cursor-pointer text-sm ${
                         paymentMethod === m.id
-                          ? 'border-teal-700 bg-teal-50/40 font-medium text-slate-900'
-                          : 'border-slate-200 text-slate-700'
+                          ? 'border-[#0b5d41] bg-teal-50/40 font-medium text-[#17211c]'
+                          : 'border-[#e7e6dd] text-[#405047]'
                       }`}
                     >
                       <input
@@ -332,7 +332,7 @@ export const CartCheckoutDrawer: React.FC = () => {
                         name="demo-payment"
                         checked={paymentMethod === m.id}
                         onChange={() => setPaymentMethod(m.id)}
-                        className="text-teal-700 focus:ring-teal-700"
+                        className="text-[#0b5d41] focus:ring-teal-700"
                       />
                       <span>{m.label}</span>
                     </label>
@@ -345,14 +345,14 @@ export const CartCheckoutDrawer: React.FC = () => {
               {groupedByMerchant.map(({ estId, establishment, items, subtotal }) => (
                 <section
                   key={estId}
-                  className="bg-white border border-slate-200 rounded-2xl overflow-hidden"
+                  className="bg-white border border-[#e7e6dd] rounded-2xl overflow-hidden"
                 >
-                  <div className="p-4 border-b border-slate-100 flex items-center justify-between gap-2">
+                  <div className="p-4 border-b border-[#eeede6] flex items-center justify-between gap-2">
                     <div>
-                      <h3 className="text-sm font-bold text-slate-900">
+                      <h3 className="text-sm font-bold text-[#17211c]">
                         {establishment?.name ?? 'Commerce'}
                       </h3>
-                      <p className="text-xs text-slate-500">
+                      <p className="text-xs text-[#829087]">
                         {establishment?.neighborhood}
                         {establishment?.prepTimeMin
                           ? ` · Prép. ~${establishment.prepTimeMin} min`
@@ -362,7 +362,7 @@ export const CartCheckoutDrawer: React.FC = () => {
                     <button
                       type="button"
                       onClick={() => clearMerchantCart(estId)}
-                      className="text-xs text-slate-500 hover:text-rose-700 inline-flex items-center gap-1 cursor-pointer"
+                      className="text-xs text-[#829087] hover:text-rose-700 inline-flex items-center gap-1 cursor-pointer"
                     >
                       <Trash2 className="w-3.5 h-3.5" />
                       <span>Vider</span>
@@ -373,30 +373,30 @@ export const CartCheckoutDrawer: React.FC = () => {
                     {items.map((item) => (
                       <div key={item.id} className="p-4 flex items-center justify-between gap-3">
                         <div className="min-w-0">
-                          <p className="text-sm font-semibold text-slate-900 truncate">
+                          <p className="text-sm font-semibold text-[#17211c] truncate">
                             {item.productName}
                           </p>
-                          <p className="text-xs text-slate-500">
+                          <p className="text-xs text-[#829087]">
                             {item.packagingLabel} · {formatFcfa(item.unitPriceFcfa)} / unité
                           </p>
                           {item.selectedOptions.length > 0 && (
-                            <p className="text-xs text-teal-800 mt-0.5">
+                            <p className="text-xs text-[#0b5d41] mt-0.5">
                               {item.selectedOptions.map((o) => o.label).join(', ')}
                             </p>
                           )}
                           {item.note && (
-                            <p className="text-xs text-slate-500 italic mt-0.5">
+                            <p className="text-xs text-[#829087] italic mt-0.5">
                               Note : {item.note}
                             </p>
                           )}
                         </div>
 
                         <div className="flex items-center gap-3 shrink-0">
-                          <div className="inline-flex items-center border border-slate-200 rounded-xl">
+                          <div className="inline-flex items-center border border-[#e7e6dd] rounded-xl">
                             <button
                               type="button"
                               onClick={() => updateCartQuantity(item.id, -1)}
-                              className="w-9 h-9 flex items-center justify-center text-slate-700 hover:bg-slate-50 cursor-pointer"
+                              className="w-9 h-9 flex items-center justify-center text-[#405047] hover:bg-[#f5f3ed] cursor-pointer"
                               aria-label="Réduire"
                             >
                               <Minus className="w-3.5 h-3.5" />
@@ -407,7 +407,7 @@ export const CartCheckoutDrawer: React.FC = () => {
                             <button
                               type="button"
                               onClick={() => updateCartQuantity(item.id, 1)}
-                              className="w-9 h-9 flex items-center justify-center text-slate-700 hover:bg-slate-50 cursor-pointer"
+                              className="w-9 h-9 flex items-center justify-center text-[#405047] hover:bg-[#f5f3ed] cursor-pointer"
                               aria-label="Augmenter"
                             >
                               <Plus className="w-3.5 h-3.5" />
@@ -417,7 +417,7 @@ export const CartCheckoutDrawer: React.FC = () => {
                           <button
                             type="button"
                             onClick={() => removeCartLine(item.id)}
-                            className="p-1.5 text-slate-400 hover:text-rose-700 cursor-pointer"
+                            className="p-1.5 text-[#9aa59d] hover:text-rose-700 cursor-pointer"
                             aria-label="Supprimer l'article"
                           >
                             <Trash2 className="w-4 h-4" />
@@ -427,17 +427,17 @@ export const CartCheckoutDrawer: React.FC = () => {
                     ))}
                   </div>
 
-                  <div className="p-4 bg-slate-50/70 border-t border-slate-100 flex items-center justify-between gap-3">
+                  <div className="p-4 bg-[#f5f3ed]/70 border-t border-[#eeede6] flex items-center justify-between gap-3">
                     <div>
-                      <p className="text-xs text-slate-500">Sous-total articles</p>
-                      <p className="text-base font-bold text-slate-900 font-mono-tabular">
+                      <p className="text-xs text-[#829087]">Sous-total articles</p>
+                      <p className="text-base font-bold text-[#17211c] font-mono-tabular">
                         {formatFcfa(subtotal)}
                       </p>
                     </div>
                     <button
                       type="button"
                       onClick={() => startCheckoutFor(estId)}
-                      className="h-11 px-4 rounded-xl bg-teal-700 hover:bg-teal-800 text-white text-sm font-medium cursor-pointer"
+                      className="h-11 px-4 rounded-xl bg-[#0b5d41] hover:bg-[#084b35] text-white text-sm font-medium cursor-pointer"
                     >
                       Commander ici
                     </button>
@@ -449,12 +449,12 @@ export const CartCheckoutDrawer: React.FC = () => {
         </div>
 
         {activeMerchantGroup && (
-          <footer className="bg-white border-t border-slate-200 p-4 space-y-3">
+          <footer className="bg-white border-t border-[#e7e6dd] p-4 space-y-3">
             <div className="flex items-center justify-between text-sm">
-              <span className="text-slate-600">
+              <span className="text-[#65736b]">
                 Total ({fulfillmentMode === 'livraison' ? 'livraison 500 FCFA incluse' : 'sans frais de livraison'})
               </span>
-              <span className="text-lg font-bold text-slate-900 font-mono-tabular">
+              <span className="text-lg font-bold text-[#17211c] font-mono-tabular">
                 {formatFcfa(
                   activeMerchantGroup.subtotal +
                     (fulfillmentMode === 'livraison' ? 500 : 0)
@@ -464,7 +464,7 @@ export const CartCheckoutDrawer: React.FC = () => {
             <button
               type="submit"
               form="checkout-form"
-              className="w-full h-12 rounded-xl bg-teal-700 hover:bg-teal-800 text-white text-sm font-semibold cursor-pointer transition-colors"
+              className="w-full h-12 rounded-xl bg-[#0b5d41] hover:bg-[#084b35] text-white text-sm font-semibold cursor-pointer transition-colors"
             >
               Confirmer la commande (démo)
             </button>
