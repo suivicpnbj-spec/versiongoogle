@@ -1,20 +1,58 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap");
 @import "tailwindcss";
+
+@theme {
+  --font-sans: "DM Sans", system-ui, -apple-system, sans-serif;
+  --font-display: "Manrope", system-ui, -apple-system, sans-serif;
+}
 
 @layer base {
   :root {
-    --font-display: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
-    --font-sans: 'DM Sans', system-ui, -apple-system, sans-serif;
-    --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, monospace;
+    --font-display: "Manrope", system-ui, -apple-system, sans-serif;
+    --font-sans: "DM Sans", system-ui, -apple-system, sans-serif;
+    --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+    --brand-forest: #0b5d41;
+    --brand-forest-deep: #153e2d;
+    --brand-lime: #e2ff65;
+    --surface-warm: #f5f3ed;
+    --surface-card: #fbfaf6;
+    --text-primary: #17211c;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  html {
+    background: var(--surface-warm);
+    color-scheme: light;
   }
 
   body {
+    min-width: 320px;
+    min-height: 100vh;
     font-family: var(--font-sans);
-    background-color: #F8F9FA;
-    color: #111827;
+    background-color: var(--surface-warm);
+    color: var(--text-primary);
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
   }
 
   h1, h2, h3, h4, .font-display {
     font-family: var(--font-display);
+  }
+
+  button, a {
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  button {
+    cursor: pointer;
+  }
+
+  ::selection {
+    background: var(--brand-lime);
+    color: var(--brand-forest-deep);
   }
 
   .font-mono-tabular {
@@ -31,7 +69,8 @@
   text-wrap: balance;
 }
 
-/* Smooth subtle scrollbars for horizontal category strips */
+/* Shared visual tokens adopted from the Figma Make exploration.
+   Keep layout and component behavior in the Google AI Studio modules. */
 .no-scrollbar::-webkit-scrollbar {
   display: none;
 }
@@ -45,5 +84,6 @@
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
   }
 }
