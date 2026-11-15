@@ -54,7 +54,8 @@ Ne pas remplacer l'application Google par le composant monolithique Figma. Les i
 - [x] Branche d'intégration isolée.
 - [x] Premier rapprochement des tokens visuels Figma dans le socle Google.
 - [x] Stratégie d'intégration documentée.
-- [ ] Refonte progressive des vues Google avec les compositions Figma.
+- [x] Première harmonisation visuelle des vues Découvrir, Comparateur, Services, Suivi et Panier (palette Figma, surfaces ivoire, textes et états cohérents).
+- [ ] Reprise plus poussée des compositions Figma (grilles, cartes éditoriales, vues détaillées et espaces métier).
 - [ ] Raccordement de chaque interaction à l'état métier partagé.
-- [ ] Build et tests de parcours.
+- [ ] Build et tests de parcours (GitHub Actions échoue actuellement avant l'exécution des étapes ; aucun runner/étape de build n'est remonté).
 - [ ] Pull request prête à revue.
