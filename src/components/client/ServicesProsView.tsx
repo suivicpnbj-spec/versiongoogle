@@ -115,12 +115,12 @@ export const ServicesProsView: React.FC = () => {
   return (
     <div className="space-y-6">
       {/* Zone de description du besoin */}
-      <section className="bg-white border border-slate-200 rounded-2xl p-5 sm:p-6 space-y-4">
+      <section className="bg-white border border-[#e7e6dd] rounded-2xl p-5 sm:p-6 space-y-4">
         <div className="space-y-1">
-          <h1 className="text-xl sm:text-2xl font-bold text-slate-900">
+          <h1 className="text-xl sm:text-2xl font-bold text-[#17211c]">
             Trouver un professionnel à proximité
           </h1>
-          <p className="text-sm text-slate-600">
+          <p className="text-sm text-[#65736b]">
             Décrivez votre besoin, comparez les tarifs indicatifs et envoyez votre position exacte pour une intervention sur place.
           </p>
         </div>
@@ -134,7 +134,7 @@ export const ServicesProsView: React.FC = () => {
                 setNeedText(preset.text);
                 setSelectedSpecialty(preset.specialty);
               }}
-              className="px-3 py-1.5 text-xs font-medium rounded-lg border border-slate-200 bg-slate-50 hover:bg-slate-100 text-slate-800 cursor-pointer transition-colors"
+              className="px-3 py-1.5 text-xs font-medium rounded-lg border border-[#e7e6dd] bg-[#f5f3ed] hover:bg-[#eeede6] text-[#26352d] cursor-pointer transition-colors"
             >
               {preset.label}
             </button>
@@ -152,7 +152,7 @@ export const ServicesProsView: React.FC = () => {
               value={needText}
               onChange={(e) => setNeedText(e.target.value)}
               placeholder="Décrivez votre panne ou prestation souhaitée…"
-              className="w-full h-11 px-3.5 text-sm bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:bg-white focus:border-teal-700"
+              className="w-full h-11 px-3.5 text-sm bg-[#f5f3ed] border border-[#e7e6dd] rounded-xl focus:outline-none focus:bg-white focus:border-[#0b5d41]"
             />
           </div>
 
@@ -161,7 +161,7 @@ export const ServicesProsView: React.FC = () => {
               value={selectedSpecialty}
               onChange={(e) => setSelectedSpecialty(e.target.value as 'all' | ProSpecialty)}
               aria-label="Catégorie de professionnel"
-              className="w-full h-11 px-3 text-sm bg-white border border-slate-200 rounded-xl text-slate-800 focus:outline-none focus:border-teal-700"
+              className="w-full h-11 px-3 text-sm bg-white border border-[#e7e6dd] rounded-xl text-[#26352d] focus:outline-none focus:border-[#0b5d41]"
             >
               <option value="all">Toutes spécialités</option>
               {Object.entries(SPECIALTY_LABELS).map(([k, label]) => (
@@ -172,12 +172,12 @@ export const ServicesProsView: React.FC = () => {
             </select>
           </div>
 
-          <label className="md:col-span-2 h-11 px-3 inline-flex items-center justify-center gap-2 text-xs sm:text-sm bg-white border border-slate-200 rounded-xl cursor-pointer">
+          <label className="md:col-span-2 h-11 px-3 inline-flex items-center justify-center gap-2 text-xs sm:text-sm bg-white border border-[#e7e6dd] rounded-xl cursor-pointer">
             <input
               type="checkbox"
               checked={onlyAvailable}
               onChange={(e) => setOnlyAvailable(e.target.checked)}
-              className="rounded text-teal-700 focus:ring-teal-700"
+              className="rounded text-[#0b5d41] focus:ring-teal-700"
             />
             <span className="whitespace-nowrap">Disponibles</span>
           </label>
@@ -192,13 +192,13 @@ export const ServicesProsView: React.FC = () => {
           return (
             <article
               key={pro.id}
-              className="bg-white border border-slate-200 rounded-2xl p-5 flex flex-col justify-between space-y-4"
+              className="bg-white border border-[#e7e6dd] rounded-2xl p-5 flex flex-col justify-between space-y-4"
             >
               <div className="space-y-3">
                 <div className="flex items-start justify-between gap-3">
                   <div>
-                    <div className="flex flex-wrap items-center gap-2 text-xs text-slate-500">
-                      <span className="font-medium text-teal-800">
+                    <div className="flex flex-wrap items-center gap-2 text-xs text-[#829087]">
+                      <span className="font-medium text-[#0b5d41]">
                         {pro.specialtyLabel}
                       </span>
                       <span aria-hidden="true">·</span>
@@ -206,14 +206,14 @@ export const ServicesProsView: React.FC = () => {
                       <span aria-hidden="true">·</span>
                       <span className="tabular-nums">{dist} km</span>
                     </div>
-                    <h2 className="text-lg font-bold text-slate-900 mt-1">
+                    <h2 className="text-lg font-bold text-[#17211c] mt-1">
                       {pro.proName}
                     </h2>
                   </div>
 
                   <span
                     className={`text-xs font-semibold inline-flex items-center gap-1 shrink-0 ${
-                      pro.availableNow ? 'text-emerald-700' : 'text-slate-500'
+                      pro.availableNow ? 'text-emerald-700' : 'text-[#829087]'
                     }`}
                   >
                     <CheckCircle2 className="w-3.5 h-3.5" />
@@ -221,24 +221,24 @@ export const ServicesProsView: React.FC = () => {
                   </span>
                 </div>
 
-                <p className="text-sm text-slate-600 leading-relaxed">{pro.bio}</p>
+                <p className="text-sm text-[#65736b] leading-relaxed">{pro.bio}</p>
 
-                <ul className="space-y-1 text-xs text-slate-700 border-t border-slate-100 pt-3">
+                <ul className="space-y-1 text-xs text-[#405047] border-t border-[#eeede6] pt-3">
                   {pro.servicesList.map((srv) => (
                     <li key={srv} className="flex items-start gap-2">
-                      <Wrench className="w-3.5 h-3.5 text-slate-400 mt-0.5 shrink-0" />
+                      <Wrench className="w-3.5 h-3.5 text-[#9aa59d] mt-0.5 shrink-0" />
                       <span>{srv}</span>
                     </li>
                   ))}
                 </ul>
               </div>
 
-              <div className="pt-3 border-t border-slate-100 flex flex-wrap items-center justify-between gap-3">
+              <div className="pt-3 border-t border-[#eeede6] flex flex-wrap items-center justify-between gap-3">
                 <div>
-                  <p className="text-base font-bold text-slate-900 font-mono-tabular">
+                  <p className="text-base font-bold text-[#17211c] font-mono-tabular">
                     {formatFcfa(pro.indicativeRateFcfa)}
                   </p>
-                  <p className="text-xs text-slate-500">
+                  <p className="text-xs text-[#829087]">
                     {pro.rateUnit} · Arrivée ~{pro.responseTimeMin} min
                   </p>
                 </div>
@@ -246,7 +246,7 @@ export const ServicesProsView: React.FC = () => {
                 <button
                   type="button"
                   onClick={() => handleOpenProModal(pro)}
-                  className="h-11 px-4 rounded-xl bg-teal-700 hover:bg-teal-800 text-white text-sm font-medium inline-flex items-center gap-2 cursor-pointer transition-colors"
+                  className="h-11 px-4 rounded-xl bg-[#0b5d41] hover:bg-[#084b35] text-white text-sm font-medium inline-flex items-center gap-2 cursor-pointer transition-colors"
                 >
                   <Navigation className="w-4 h-4" />
                   <span>Demander une intervention</span>
@@ -266,17 +266,17 @@ export const ServicesProsView: React.FC = () => {
         >
           <form
             onSubmit={handleSubmitIntervention}
-            className="bg-white w-full sm:max-w-2xl rounded-t-3xl sm:rounded-2xl border border-slate-200 p-5 sm:p-6 space-y-5 max-h-[92vh] overflow-y-auto"
+            className="bg-white w-full sm:max-w-2xl rounded-t-3xl sm:rounded-2xl border border-[#e7e6dd] p-5 sm:p-6 space-y-5 max-h-[92vh] overflow-y-auto"
           >
             <div className="flex items-start justify-between gap-4">
               <div>
-                <p className="text-xs font-medium text-teal-800">
+                <p className="text-xs font-medium text-[#0b5d41]">
                   {selectedPro.specialtyLabel} · {selectedPro.neighborhood}
                 </p>
-                <h3 className="text-lg font-bold text-slate-900">
+                <h3 className="text-lg font-bold text-[#17211c]">
                   Solliciter {selectedPro.proName}
                 </h3>
-                <p className="text-xs text-slate-500 flex items-center gap-3 mt-1">
+                <p className="text-xs text-[#829087] flex items-center gap-3 mt-1">
                   <span className="inline-flex items-center gap-1">
                     <Clock className="w-3.5 h-3.5" /> Arrivée estimée ~{selectedPro.responseTimeMin} min
                   </span>
@@ -288,7 +288,7 @@ export const ServicesProsView: React.FC = () => {
               <button
                 type="button"
                 onClick={() => setSelectedPro(null)}
-                className="p-2 text-slate-400 hover:text-slate-700 cursor-pointer"
+                className="p-2 text-[#9aa59d] hover:text-[#405047] cursor-pointer"
                 aria-label="Fermer"
               >
                 <X className="w-5 h-5" />
@@ -302,7 +302,7 @@ export const ServicesProsView: React.FC = () => {
             )}
 
             <div>
-              <label className="block text-xs font-semibold text-slate-700 mb-1">
+              <label className="block text-xs font-semibold text-[#405047] mb-1">
                 Description du problème ou de la prestation
               </label>
               <textarea
@@ -310,38 +310,38 @@ export const ServicesProsView: React.FC = () => {
                 value={needText}
                 onChange={(e) => setNeedText(e.target.value)}
                 placeholder="Ex. : Moto immobilisée près du carrefour, pneu crevé…"
-                className="w-full p-3 text-sm border border-slate-200 rounded-xl focus:outline-none focus:border-teal-700"
+                className="w-full p-3 text-sm border border-[#e7e6dd] rounded-xl focus:outline-none focus:border-[#0b5d41]"
               />
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
               <div>
-                <label className="block text-xs font-semibold text-slate-700 mb-1">
+                <label className="block text-xs font-semibold text-[#405047] mb-1">
                   Votre nom
                 </label>
                 <input
                   type="text"
                   value={customerName}
                   onChange={(e) => setCustomerName(e.target.value)}
-                  className="w-full h-11 px-3 text-sm border border-slate-200 rounded-xl focus:outline-none focus:border-teal-700"
+                  className="w-full h-11 px-3 text-sm border border-[#e7e6dd] rounded-xl focus:outline-none focus:border-[#0b5d41]"
                 />
               </div>
               <div>
-                <label className="block text-xs font-semibold text-slate-700 mb-1">
+                <label className="block text-xs font-semibold text-[#405047] mb-1">
                   Téléphone de contact
                 </label>
                 <input
                   type="tel"
                   value={customerPhone}
                   onChange={(e) => setCustomerPhone(e.target.value)}
-                  className="w-full h-11 px-3 text-sm font-mono-tabular border border-slate-200 rounded-xl focus:outline-none focus:border-teal-700"
+                  className="w-full h-11 px-3 text-sm font-mono-tabular border border-[#e7e6dd] rounded-xl focus:outline-none focus:border-[#0b5d41]"
                 />
               </div>
             </div>
 
             <div className="space-y-2">
-              <div className="flex items-center gap-2 text-xs font-semibold text-slate-700">
-                <MapPin className="w-3.5 h-3.5 text-teal-700" />
+              <div className="flex items-center gap-2 text-xs font-semibold text-[#405047]">
+                <MapPin className="w-3.5 h-3.5 text-[#0b5d41]" />
                 <span>Position exacte de l’intervention à Parakou</span>
               </div>
               <ParakouInteractiveMap
@@ -357,17 +357,17 @@ export const ServicesProsView: React.FC = () => {
               />
             </div>
 
-            <div className="flex items-center justify-end gap-3 pt-2 border-t border-slate-100">
+            <div className="flex items-center justify-end gap-3 pt-2 border-t border-[#eeede6]">
               <button
                 type="button"
                 onClick={() => setSelectedPro(null)}
-                className="h-11 px-4 rounded-xl border border-slate-200 text-sm font-medium text-slate-700 cursor-pointer"
+                className="h-11 px-4 rounded-xl border border-[#e7e6dd] text-sm font-medium text-[#405047] cursor-pointer"
               >
                 Annuler
               </button>
               <button
                 type="submit"
-                className="h-11 px-5 rounded-xl bg-teal-700 hover:bg-teal-800 text-white text-sm font-medium cursor-pointer"
+                className="h-11 px-5 rounded-xl bg-[#0b5d41] hover:bg-[#084b35] text-white text-sm font-medium cursor-pointer"
               >
                 Envoyer la demande d’intervention
               </button>
